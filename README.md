@@ -22,3 +22,11 @@ OPTIONS:
     -V, --version                      Print version information
 ```
 Output will be printed as JSON to stdout.
+
+## Building
+
+This crate requires nightly rust due to https://github.com/rust-lang/rust/issues/86319
+
+```
+cargo +nightly install --path .
+```
