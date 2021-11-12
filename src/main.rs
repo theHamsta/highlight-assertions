@@ -29,6 +29,10 @@ unsafe fn load_language(
     }
 }
 
+/// Reads the unit test format for highlighting of tree-sitter
+/// https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing to make it available for
+/// unit test for https://github.com/nvim-treesitter/nvim-treesitter.
+/// Output will be printed to stdout.
 #[derive(clap::Parser)]
 #[clap(version = "1.0", author = "Stephan Seitz <stephan.seitz@fau.de>")]
 struct Args {
