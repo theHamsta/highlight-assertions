@@ -16,7 +16,7 @@ USAGE:
 
 OPTIONS:
     -h, --help                         Print help information
-    -p, --parser-file <PARSER_FILE>    Parser library to load
+    -p, --parser-file <PARSER_FILE>    Parser library to load (e.g. cpp.so from nvim-treesitter/parser)
     -s, --source-file <SOURCE_FILE>    Source file with highlight assertions following https://tree-
                                        sitter.github.io/tree-sitter/syntax-highlighting#unit-testing
     -V, --version                      Print version information

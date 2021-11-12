@@ -32,7 +32,7 @@ unsafe fn load_language(
 #[derive(clap::Parser)]
 #[clap(version = "1.0", author = "Stephan Seitz <stephan.seitz@fau.de>")]
 struct Args {
-    /// Parser library to load
+    /// Parser library to load (e.g. cpp.so from nvim-treesitter/parser)
     #[clap(short, long)]
     parser_file: PathBuf,
 
