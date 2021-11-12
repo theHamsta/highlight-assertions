@@ -6,7 +6,6 @@ mod parse_assertions;
 use crate::parse_assertions::parse_position_comments;
 use clap::Parser;
 use std::path::{Path, PathBuf};
-
 use tree_sitter::Language;
 
 unsafe fn load_language(
