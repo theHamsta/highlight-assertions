@@ -8,6 +8,8 @@ use clap::Parser;
 use std::path::{Path, PathBuf};
 use tree_sitter::Language;
 
+/// Loads tree_sitter::Language from a share library with name <language>.so
+/// returned language must not be used after the library has been dropped!
 unsafe fn load_language(
     parser_file: &Path,
 ) -> anyhow::Result<(Language, Box<libloading::Library>)> {
