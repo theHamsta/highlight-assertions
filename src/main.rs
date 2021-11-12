@@ -36,7 +36,7 @@ struct Args {
     #[clap(short, long)]
     parser_file: PathBuf,
 
-    /// Source file with highlight assertions
+    /// Source file with highlight assertions following https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing
     #[clap(short, long)]
     source_file: PathBuf,
 }
