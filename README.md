@@ -2,7 +2,7 @@
 
 Reads the unit test format for highlighting of tree-sitter
 https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing to make it available for
-unit test for https://github.com/nvim-treesitter/nvim-treesitter
+unit tests for https://github.com/nvim-treesitter/nvim-treesitter
 
 The function parsing the file format is vendored from
 https://github.com/tree-sitter/tree-sitter/blob/master/cli/src/query_testing.rs#L27-L124
