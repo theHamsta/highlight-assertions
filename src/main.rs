@@ -20,7 +20,7 @@ unsafe fn load_language(
             format!(
                 "tree_sitter_{}",
                 lang_name
-                    .ok_or_else(|| anyhow::anyhow!("Failed to get filestem!"))?
+                    .ok_or_else(|| anyhow::anyhow!("Failed to get file_prefix!"))?
                     .to_string_lossy()
                     .to_owned()
             )
