@@ -35,7 +35,7 @@ unsafe fn load_language(
 /// unit test for https://github.com/nvim-treesitter/nvim-treesitter.
 /// Output will be printed to stdout.
 #[derive(clap::Parser)]
-#[clap(version = "1.0", author = "Stephan Seitz <stephan.seitz@fau.de>")]
+#[clap(author, version)]
 struct Args {
     /// Parser library to load (e.g. cpp.so from nvim-treesitter/parser)
     #[clap(short, long)]
@@ -60,7 +60,7 @@ fn main() -> anyhow::Result<()> {
         &mut parser,
         language,
         std::fs::read_to_string(args.source_file)?.as_ref(),
-        Some(&args.comment_node),
+        &args.comment_node,
     )?;
     println!("{}", serde_json::to_string(&assertions)?);
     Ok(())
