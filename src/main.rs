@@ -44,6 +44,10 @@ struct Args {
     /// Source file with highlight assertions following https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing
     #[clap(short, long)]
     source_file: PathBuf,
+
+    /// Name of comment node in the language at hand
+    #[clap(short, long, default_value("comment".into()))]
+    comment_node: String,
 }
 
 fn main() -> anyhow::Result<()> {
@@ -56,6 +60,7 @@ fn main() -> anyhow::Result<()> {
         &mut parser,
         language,
         std::fs::read_to_string(args.source_file)?.as_ref(),
+        Some(&args.comment_node),
     )?;
     println!("{}", serde_json::to_string(&assertions)?);
     Ok(())

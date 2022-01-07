@@ -34,6 +34,7 @@ pub fn parse_position_comments(
     parser: &mut Parser,
     language: Language,
     source: &[u8],
+    comment_node: Option<&str>,
 ) -> Result<Vec<Assertion>> {
     let mut result = Vec::new();
     let mut assertion_ranges = Vec::new();
@@ -51,7 +52,7 @@ pub fn parse_position_comments(
             let node = cursor.node();
 
             // Find every comment node.
-            if node.kind().contains("comment") {
+            if node.kind().contains(comment_node.unwrap_or("comment")) {
                 if let Ok(text) = node.utf8_text(source) {
                     let mut position = node.start_position();
                     if position.row > 0 {
