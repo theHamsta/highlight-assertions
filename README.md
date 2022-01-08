@@ -10,19 +10,33 @@ https://github.com/tree-sitter/tree-sitter/blob/master/cli/src/query_testing.rs#
 ## Usage
 
 ```
-highlight-assertions 1.0
+highlight-assertions 0.1.0
 
 Stephan Seitz <stephan.seitz@fau.de>
 
+Reads the unit test format for highlighting of tree-sitter https://tree-sitter.github.io/tree-
+sitter/syntax-highlighting#unit-testing to make it available for unit test for
+https://github.com/nvim-treesitter/nvim-treesitter. Output will be printed to stdout
+
 USAGE:
-    highlight-assertions --parser-file <PARSER_FILE> --source-file <SOURCE_FILE>
+    highlight-assertions [OPTIONS] --parser-file <PARSER_FILE> --source-file <SOURCE_FILE>
 
 OPTIONS:
-    -h, --help                         Print help information
-    -p, --parser-file <PARSER_FILE>    Parser library to load (e.g. cpp.so from nvim-treesitter/parser)
-    -s, --source-file <SOURCE_FILE>    Source file with highlight assertions following https://tree-
-                                       sitter.github.io/tree-sitter/syntax-highlighting#unit-testing
-    -V, --version                      Print version information
+    -c, --comment-node <COMMENT_NODE>
+            Name of comment node in the language at hand [default: comment]
+
+    -h, --help
+            Print help information
+
+    -p, --parser-file <PARSER_FILE>
+            Parser library to load (e.g. cpp.so from nvim-treesitter/parser)
+
+    -s, --source-file <SOURCE_FILE>
+            Source file with highlight assertions following https://tree-sitter.github.io/tree-
+            sitter/syntax-highlighting#unit-testing
+
+    -V, --version
+            Print version information
 ```
 Output will be printed as JSON to stdout.
 
