@@ -19,3 +19,4 @@ jobs:
           RUSTTARGET: ${{ matrix.target }}
           EXTRA_FILES: "README.md LICENSE"
           TOOLCHAIN_VERSION: nightly
+          ARCHIVE_TYPES: zip tar.gz
