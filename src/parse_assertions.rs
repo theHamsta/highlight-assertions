@@ -1,6 +1,6 @@
 //! From https://github.com/tree-sitter/tree-sitter/blob/67de9435b109f9bd8bf5957d11ff13161966d262/cli/src/query_testing.rs#L27-L124
 use anyhow::Result;
-use once_cell::sync::OnceCell;
+use once_cell::unsync::Lazy;
 use regex::Regex;
 use serde::Serialize;
 use tree_sitter::{Language, Parser};
@@ -76,13 +76,11 @@ pub fn parse_position_comments(
                             has_left_caret = c == '<';
                         }
 
-                        static CAPTURE_NAME_REGEX: OnceCell<Regex> = OnceCell::new();
                         // If the comment node contains an arrow and a highlight name, record the
                         // highlight name and the position.
                         if let (true, Some(mat)) = (
                             has_arrow,
-                            CAPTURE_NAME_REGEX
-                                .get_or_init(|| Regex::new("[\\w_\\-.]+").unwrap())
+                            Lazy::new(|| Regex::new("[!\\w_\\-.]+").unwrap())
                                 .find(&text[arrow_end..]),
                         ) {
                             assertion_ranges.push((node.start_position(), node.end_position()));

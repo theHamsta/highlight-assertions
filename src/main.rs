@@ -22,7 +22,6 @@ unsafe fn load_language(
                 lang_name
                     .ok_or_else(|| anyhow::anyhow!("Failed to get file_prefix!"))?
                     .to_string_lossy()
-                    .to_owned()
             )
             .as_ref(),
         )?;
@@ -46,7 +45,7 @@ struct Args {
     source_file: PathBuf,
 
     /// Name of comment node in the language at hand
-    #[clap(short, long, default_value("comment".into()))]
+    #[clap(short, long, default_value("comment"))]
     comment_node: String,
 }
 
