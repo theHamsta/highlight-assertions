@@ -75,12 +75,13 @@ pub fn parse_position_comments(
                             }
                             has_left_caret = c == '<';
                         }
+                        static let regex = Lazy::new(|| Regex::new("[!\\w_\\-.]+").unwrap());
 
                         // If the comment node contains an arrow and a highlight name, record the
                         // highlight name and the position.
                         if let (true, Some(mat)) = (
                             has_arrow,
-                            Lazy::new(|| Regex::new("[!\\w_\\-.]+").unwrap())
+                            regex
                                 .find(&text[arrow_end..]),
                         ) {
                             assertion_ranges.push((node.start_position(), node.end_position()));
