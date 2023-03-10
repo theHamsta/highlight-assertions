@@ -75,15 +75,12 @@ pub fn parse_position_comments(
                             }
                             has_left_caret = c == '<';
                         }
-                        static REGEX: Lazy<Regex> = Lazy::new(|| Regex::new("[!\\w_\\-.]+").unwrap());
+                        static REGEX: Lazy<Regex> =
+                            Lazy::new(|| Regex::new("[!\\w_\\-.]+").unwrap());
 
                         // If the comment node contains an arrow and a highlight name, record the
                         // highlight name and the position.
-                        if let (true, Some(mat)) = (
-                            has_arrow,
-                            REGEX
-                                .find(&text[arrow_end..]),
-                        ) {
+                        if let (true, Some(mat)) = (has_arrow, REGEX.find(&text[arrow_end..])) {
                             assertion_ranges.push((node.start_position(), node.end_position()));
                             let tree_sitter::Point { row, column } = position;
                             result.push(Assertion {
