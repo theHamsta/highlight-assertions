@@ -1,6 +1,7 @@
 [package]
 name = "highlight-assertions"
-version = "0.1.6"
+description = "Reads the unit test format for highlighting of tree-sitter to be used nvim-treesitter's test suite"
+version = "0.1.7"
 edition = "2021"
 authors = ["Stephan Seitz <stephan.seitz@fau.de>"]
 license = "MIT"
@@ -8,6 +9,7 @@ readme = "README.md"
 keywords = ["incremental", "parsing"]
 categories = ["api-bindings", "parsing", "text-editors"]
 repository = "https://github.com/theHamsta/highlight-assertions"
+homepage = "https://github.com/theHamsta/highlight-assertions"
 
 [dependencies]
 tree-sitter = "0.20.9"
